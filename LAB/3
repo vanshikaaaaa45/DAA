@@ -1,25 +1,32 @@
-#include<stdio.h>
+#include<iostream>
+using namespace std;
 #include<math.h>
+int jump_search(int [],int ,int ,int*);
 int main()
 {
-    int n,i,res;
-    printf("enter total no of elements in an array");
-    scanf("%d",&n);
-    int a[n];
-    for(i=0;i<n;i++)
+    int testcase,c;
+    cin>>testcase;
+    for(int i=1;i<=testcase;i++)
     {
-        scanf("%d",&a[i]);
+    c=0;
+    int n,res;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
     }
     int key;
-    printf("enter the key:");
-    scanf("%d",&key);
-    res=jump_search(a,key,n);
+    cin>>key;
+    res=jump_search(a,key,n,&c);
     if(res==-1)
-    printf("key not found");
+    cout<<"key not found"<<endl;
     else
-    printf("key found");
+    cout<<"key found"<<endl;
+    cout<<"total number of comparisons:"<<c<<endl;
+    }
 }
-int jump_search(int a[],int key,int n)
+int jump_search(int a[],int key,int n,int*p)
 {
 int start=0,end=sqrt(n);
 while(a[end]<key&&start<end)
@@ -31,6 +38,7 @@ while(a[end]<key&&start<end)
 }
 for(int i=start;i<=end;i++)
 {
+    (*p)++;
     if(a[i]==key)
     return 1;
 }
