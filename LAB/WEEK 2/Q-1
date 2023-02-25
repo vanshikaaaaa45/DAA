@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+#define max 100
+void binary_search(int[],int,int,int,int*,int*);
+int main()
+{
+int testcase,j,res,c;
+cin>>testcase;
+for(int i=1;i<=testcase;i++)
+{
+    c=0,res=0;
+    int a[max];
+    int n;
+    cin>>n;
+    for(j=0;j<n;j++)
+    {
+        cin>>a[j];
+    }
+    int key;
+    cin>>key;
+    binary_search(a,0,n-1,key,&res,&c);
+    if(c==1)
+    cout<<key<<" - "<<res<<endl;
+    else
+    cout<<"KEY NOT PRESENT"<<endl;
+}
+}
+void binary_search(int a[],int l, int h,int key,int *q,int *p)
+{
+    int mid,j;
+    if(l>h)
+    return;
+    else
+    {
+      mid=(l+h)/2;
+      if(a[mid]==key)
+      { 
+      (*p)=1;
+      (*q)++;
+      j=mid-1;
+      while(j>-1)
+      {
+        if(key==a[j])
+        (*q)++;
+        j--;
+      }
+      j=mid+1;
+      while(j<=h)
+      {
+        if(key==a[j])
+        (*q)++;
+        j++;
+      }
+      }
+      else if(key<a[mid])
+      binary_search(a,l,mid-1,key,q,p);
+      else
+      binary_search(a,mid+1,h,key,q,p);
+      } 
+}
