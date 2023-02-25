@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+#define max 100
+void func(int[],int);
+int main()
+{
+    int testcase;
+    cin>>testcase;
+    for(int i=0;i<=testcase;i++)
+    {
+    int a[max];
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+       cin>>a[i];
+    }
+    func(a,n);
+    }
+}
+void func(int a[],int n)
+{
+    int i,j,k,c=0;
+    for(k=0;k<n;k++)
+    {
+        for(j=0;j<n;j++)
+        {
+            for(i=j+1;i<n;i++)
+            {
+                if(a[i]+a[j]==a[k])
+                {
+                c=1;
+                cout<<j+1<<","<<i+1<<","<<k+1<<endl;
+                }
+            }
+        }
+    }
+    if(c==0)
+    cout<<"No sequence found"<<endl;
+}
