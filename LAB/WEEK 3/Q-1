@@ -5,22 +5,22 @@ int comp=0,shifts=0;
 int main()
 {
     int t,n;
-    printf("Enter number of test cases: ");
-    scanf("%d",&t);
+    cout<<"enter number of test cases"<<endl;
+    cin>>t;
     for(int j=0;j<t;j++)
     {
-        printf("Enter the size of array: ");
-        scanf("%d",&n);
+        cout<<"Enter the size of array";
+        cin>>n;
         int a[n];
         for(int i=0;i<n;i++)
         {
-            scanf("%d",&a[i]);
+           cin>>a[i];
         }
         insertion(a,n);
-        printf("Sorted array is:\n");
+        cout<<"Sorted array is:"<<endl;
         for(int i=0;i<n;i++)
         {
-            printf("%d ",a[i]);
+            cout<<a[i];
         }
        cout<<endl;
        cout<<"comparisons = "<<comp<<endl;
