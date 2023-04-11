@@ -2,6 +2,27 @@
 #include <vector>
 using namespace std;
 
+int main() 
+{
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n;
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+        cin >> k;
+        int kthSmallestElement = kthSmallest(arr, k);
+        if (kthSmallestElement == -1) {
+            cout << "not present\n";
+        } else {
+            cout << kthSmallestElement << "\n";
+        }
+    }
+    return 0;
+ }
 int partition(vector<int>& arr, int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
@@ -30,24 +51,3 @@ int kthSmallest(vector<int>& arr, int k) {
     }
     return -1;
 }
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, k;
-        cin >> n;
-        vector<int> arr(n);
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
-        cin >> k;
-        int kthSmallestElement = kthSmallest(arr, k);
-        if (kthSmallestElement == -1) {
-            cout << "not present\n";
-        } else {
-            cout << kthSmallestElement << "\n";
-        }
-    }
-    return 0;
-    }
