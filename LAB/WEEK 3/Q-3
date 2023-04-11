@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-void find_dublicate(int [],int);
+void find_duplicate(int [],int);
 bool binary_search(int [],int,int,int);
 int main()
 {
@@ -15,11 +15,11 @@ int main()
        cout<<"Enter elements in an array"<<endl;
        for(int i=0;i<n;i++)
        cin>>a[i];
-       find_dublicate(a,n);
+       find_duplicate(a,n);
     }
        return 0;
 }
-void find_dublicate(int a[],int n)
+void find_duplicate(int a[],int n)
 {
     bool t=false;
     for(int i=0;i<n;i++)
